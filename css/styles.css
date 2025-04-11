@@ -290,6 +290,9 @@ li {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
 .gallery-item:hover {
@@ -298,14 +301,17 @@ li {
 
 .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
     display: block;
+    background-color: #f5f5f7;
 }
 
 .gallery-item p {
     padding: 1rem;
     text-align: center;
     font-weight: 500;
+    margin-top: auto;
 }
 
 /* Reviews Section */
