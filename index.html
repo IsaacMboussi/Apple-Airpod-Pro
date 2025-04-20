@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="js/payment.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=process.env.PAYPAL_CLIENT_ID&currency=USD"></script>
+    <script src="js/paypal.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -250,51 +250,56 @@
         <section class="payment-section" id="payment">
             <h2>Complete Your Purchase</h2>
             <div class="payment-container">
-                <form id="payment-form" class="payment-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="card-element">Credit or Debit Card</label>
-                        <div id="card-element"></div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" id="address" name="address" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" name="city" required>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="product-details">
+                        <img src="assets/images/airpods-pro-hero.jpg" alt="AirPods Pro" class="product-thumbnail">
+                        <div class="product-info">
+                            <h4>AirPods Pro</h4>
+                            <p class="price">$50.00</p>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="state">State</label>
-                            <select id="state" name="state" required>
-                                <option value="">Select a state</option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <!-- Add all US states -->
-                                <option value="WY">Wyoming</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="zip">ZIP Code</label>
-                            <input type="text" id="zip" name="zip" required pattern="[0-9]{5}">
-                        </div>
+                    <div class="shipping-info">
+                        <h4>Shipping Information</h4>
+                        <form id="shipping-form" class="shipping-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State</label>
+                                    <select id="state" name="state" required>
+                                        <option value="">Select a state</option>
+                                        <option value="AL">Alabama</option>
+                                        <!-- Add all US states -->
+                                        <option value="WY">Wyoming</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP Code</label>
+                                    <input type="text" id="zip" name="zip" required pattern="[0-9]{5}">
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div id="payment-error" class="error-message" style="display: none;"></div>
-                    <div id="payment-success" class="success-message" style="display: none;">
-                        Payment successful! Redirecting to confirmation...
-                    </div>
-                    <button type="submit" class="submit-payment">Pay Now</button>
-                </form>
+                </div>
+                <div class="payment-methods">
+                    <h3>Payment Method</h3>
+                    <div id="paypal-button-container"></div>
+                </div>
             </div>
         </section>
     </main>

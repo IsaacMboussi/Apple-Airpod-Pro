@@ -1,5 +1,5 @@
 // Initialize Stripe with your publishable key
-const stripe = Stripe('your_publishable_key'); // Replace with your actual publishable key
+const stripe = Stripe('pk_live_51RClaSFvxOXI945EvLC5jgsDILLcw0kCE7urs3D4AAptU3xTZQIxrMvoEOAgWGqKnXAe0awoTOF2i1kOijgUgpYz00hvvYNAhB'); // Replace with your actual publishable key
 
 // Create payment form handler
 document.addEventListener('DOMContentLoaded', function() {

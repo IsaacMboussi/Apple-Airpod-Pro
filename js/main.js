@@ -1,5 +1,5 @@
 // Initialize Stripe
-const stripe = Stripe('your_publishable_key'); // Replace with your Stripe publishable key
+const stripe = Stripe('pk_live_51RClaSFvxOXI945EvLC5jgsDILLcw0kCE7urs3D4AAptU3xTZQIxrMvoEOAgWGqKnXAe0awoTOF2i1kOijgUgpYz00hvvYNAhB'); // Replace with your Stripe publishable key
 
 // Cart functionality
 class Cart {
